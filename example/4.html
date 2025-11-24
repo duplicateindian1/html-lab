@@ -1,0 +1,161 @@
+<html>
+<head>
+<title>MS Dhoni - Inline CSS</title>
+<style>
+body {
+  background: linear-gradient(135deg, #E0F7FA, #FFFDE7);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #222;
+  overflow-x: hidden;
+}
+
+/* Main heading */
+#h1 {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 55px;
+  margin-top: 60px;
+  letter-spacing: 4px;
+  background: linear-gradient(90deg, #007BFF, #00E6E6, #00FF99);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 3s ease-in-out infinite alternate;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #00BFFF, 0 0 20px #00E6E6, 0 0 30px #00FF99; }
+  to { text-shadow: 0 0 20px #00FF99, 0 0 40px #1E90FF, 0 0 60px #87CEFA; }
+}
+
+/* Dhoni description */
+#p1 {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(8px);
+  color: #333;
+  font-size: 20px;
+  text-align: justify;
+  width: 80%;
+  margin: 30px auto;
+  line-height: 1.8;
+  border-left: 8px solid #007BFF;
+  border-radius: 15px;
+  padding: 25px 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+}
+#p1:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Sub-heading */
+#h2 {
+  text-align: center;
+  font-family: 'Trebuchet MS', sans-serif;
+  color: #006666;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: 60px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.15);
+}
+
+/* Ordered list */
+#ol1 {
+  width: 70%;
+  margin: 40px auto;
+  padding: 30px 50px;
+  background: linear-gradient(to right, #E0FFFF, #E6FFFA);
+  border: 2px solid #20B2AA;
+  border-radius: 25px;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 22px;
+  color: #004080;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  list-style: none;
+  counter-reset: item;
+}
+#ol1 li {
+  counter-increment: item;
+  margin: 15px 0;
+  padding: 12px 20px;
+  border-bottom: 1px dashed #ADD8E6;
+  position: relative;
+  transition: all 0.3s ease;
+}
+#ol1 li::before {
+  content: counter(item);
+  background: linear-gradient(135deg, #FF8C00, #FF6347);
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  left: -45px;
+  top: 8px;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  line-height: 28px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+#ol1 li:hover {
+  background-color: rgba(0,255,255,0.1);
+  transform: translateX(10px);
+  border-radius: 10px;
+  color: #003366;
+}
+#ol1 li:last-child {
+  border-bottom: none;
+}
+
+/* Closing quote */
+#p2 {
+  text-align: center;
+  color: #004D00;
+  font-size: 26px;
+  font-weight: bold;
+  background: linear-gradient(to right, #D0F0C0, #E0FFE0);
+  width: 60%;
+  margin: 50px auto;
+  padding: 18px;
+  border: 3px solid #32CD32;
+  border-radius: 20px;
+  font-style: italic;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease;
+}
+#p2:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #C8FACC, #E8FFE8);
+}
+</style>
+</head>
+
+<body>
+<h1 id="h1">MS DHONI</h1>
+
+<p id="p1">
+MS Dhoni is a legendary Indian cricketer and former captain known for his exceptional leadership,
+calm demeanor, and all-round skills as a right-handed batsman and wicketkeeper. Under his captaincy, India won the 2007 T20 World Cup, the 2011 Cricket World Cup,
+and the 2013 Champions Trophy, making him the only captain to win all three major ICC tournaments. He is also known as "Captain Cool" and is the captain of the
+Chennai Super Kings in the Indian Premier League (IPL).
+</p>
+
+<h1 id="h2">Records of MSD</h1>
+
+<ol id="ol1">
+  <li>Only captain to win all three major ICC trophies</li>
+  <li>Most international matches as captain</li>
+  <li>Most international stumpings</li>
+  <li>Second-most wins as captain</li>
+  <li>Most runs at No. 6 or lower</li>
+  <li>Highest individual score by a wicketkeeper in ODIs</li>
+</ol>
+
+<p id="p2">"Captain Cool of Indian Cricket"</p>
+</body>
+</html>

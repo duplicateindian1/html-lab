@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultimate Registration</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary-color: #00bcd4; /* Cyan/Aqua */
+  --form-bg: rgba(0, 0, 0, 0.25);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-color: #f0f0f0;
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --input-focus-bg: rgba(255, 255, 255, 0.15);
+  --shadow-color: rgba(0, 0, 0, 0.7);
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #1e1e2d, #0d0d1a);
+  overflow: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: -10vh;
+  left: -10vw;
+  width: 120vw;
+  height: 120vh;
+  background: radial-gradient(circle at 10% 90%, rgba(0, 188, 212, 0.4), transparent 50%),
+              radial-gradient(circle at 90% 10%, rgba(255, 61, 150, 0.4), transparent 50%);
+  z-index: 0;
+  animation: backgroundPulse 15s infinite alternate;
+}
+
+@keyframes backgroundPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+form {
+  position: relative;
+  background: var(--form-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 50px var(--shadow-color);
+  backdrop-filter: blur(25px);
+  border-radius: 25px;
+  width: 400px;
+  padding: 50px 40px;
+  color: var(--text-color);
+  z-index: 1;
+  animation: slideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateY(50px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: var(--primary-color);
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px 10px 5px 10px;
+  background: var(--input-bg);
+  border: none;
+  border-bottom: 2px solid var(--border-color);
+  color: var(--text-color);
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border-radius: 5px 5px 0 0;
+}
+
+.input-group input:focus {
+  outline: none;
+  background: var(--input-focus-bg);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.input-group label {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+  transition: 0.3s ease-out;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+  top: 0px;
+  left: 10px;
+  font-size: 12px;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Hide placeholder text when input has value or is focused to prevent overlap with floating label */
+.input-group input:not(:focus):not(:placeholder-shown)::placeholder {
+  color: transparent;
+}
+.input-group input:focus::placeholder {
+  color: transparent;
+}
+/* Ensure placeholder shows normally when it should */
+.input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.3s;
+}
+
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+button {
+  width: 48%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.4s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#submit-btn {
+  background: linear-gradient(45deg, #00bfff, var(--primary-color));
+  color: #1e1e2d;
+}
+
+#cancel-btn {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.5);
+}
+
+#cancel-btn:hover {
+  background: rgba(0, 188, 212, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.3);
+}
+</style>
+</head>
+<body>
+<form onsubmit="return validate()">
+  <h1>SECURE REGISTRATION</h1>
+
+  <div class="input-group">
+    <input type="text" id="nm" placeholder=" " required>
+    <label for="nm">Name</label>
+  </div>
+
+  <div class="input-group">
+    <input type="tel" id="no" maxlength="10" placeholder=" " required>
+    <label for="no">Mobile (10 Digits)</label>
+  </div>
+
+  <div class="input-group">
+    <input type="password" id="pwd" maxlength="8" placeholder=" " required>
+    <label for="pwd">Password (8 Characters)</label>
+  </div>
+
+  <div class="input-group">
+    <input type="password" id="pwd1" maxlength="8" placeholder=" " required>
+    <label for="pwd1">Confirm Password</label>
+  </div>
+
+  <div class="btn-group">
+    <button id="submit-btn" type="submit">Register Now</button>
+    <button id="cancel-btn" type="button" onclick="cancel()">Clear</button>
+  </div>
+</form>
+<script>
+function cancel() {
+  document.getElementById('nm').value = '';
+  document.getElementById('no').value = '';
+  document.getElementById('pwd').value = '';
+  document.getElementById('pwd1').value = '';
+  alert("Form fields cleared. Start fresh!");
+}
+function validate() {
+  let name = nm.value.trim(),
+      phone = no.value.trim(),
+      pass = pwd.value,
+      pass1 = pwd1.value;
+
+  if (name === "" || !isNaN(name)) {
+    alert("Please enter a valid name (text only).");
+    return false;
+  }
+  if (phone.length !== 10 || isNaN(phone)) {
+    alert("Please enter a valid 10-digit mobile number.");
+    return false;
+  }
+  if (pass.length !== 8) {
+    alert("Password must be exactly 8 characters long.");
+    return false;
+  }
+  if (pass !== pass1) {
+    alert("Passwords do not match. Try again!");
+    return false;
+  }
+
+  alert("Registration Successful! Welcome to the future.");
+  return true;
+}
+</script>
+</body>
+</html>

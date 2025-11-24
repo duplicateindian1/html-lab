@@ -1,0 +1,122 @@
+<html>
+<head>
+<title>Registration Form</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap');
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+}
+form {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  width: 380px;
+  padding: 40px;
+  color: #fff;
+  animation: fadeIn 1s ease;
+}
+h1 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #fff;
+}
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 500;
+  color: #fdfdfd;
+}
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  font-size: 15px;
+  transition: 0.3s;
+}
+input::placeholder { color: rgba(255,255,255,0.8); }
+input:focus {
+  outline: none;
+  background: rgba(255,255,255,0.4);
+  box-shadow: 0 0 5px #fff;
+}
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+button {
+  width: 48%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+}
+#submit-btn {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  color: #3f3d56;
+}
+#cancel-btn {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+<body>
+<form onsubmit="return validate()">
+  <h1>Register</h1>
+  <label>Name</label>
+  <input type="text" id="nm" placeholder="Enter your name">
+  <label>Mobile</label>
+  <input type="tel" id="no" maxlength="10" placeholder="10-digit number">
+  <label>Password</label>
+  <input type="password" id="pwd" maxlength="8" placeholder="8 characters">
+  <label>Confirm Password</label>
+  <input type="password" id="pwd1" maxlength="8" placeholder="Re-enter password">
+  <div class="btn-group">
+    <button id="submit-btn" type="submit">Submit</button>
+    <button id="cancel-btn" type="button" onclick="cancel()">Cancel</button>
+  </div>
+</form>
+<script>
+function cancel() {
+  alert("Registration cancelled!");
+}
+function validate() {
+  let name = nm.value.trim(),
+      phone = no.value.trim(),
+      pass = pwd.value,
+      pass1 = pwd1.value;
+  if (name === "" || !isNaN(name)) { alert("Enter a valid name"); return false; }
+  if (phone.length !== 10 || isNaN(phone)) { alert("Enter valid 10-digit phone"); return false; }
+  if (pass.length !== 8) { alert("Password must be 8 characters"); return false; }
+  if (pass !== pass1) { alert("Passwords do not match"); return false; }
+  alert("Registration Successful!");
+  return true;
+}
+</script>
+</body>
+</html>

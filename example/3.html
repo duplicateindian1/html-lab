@@ -1,0 +1,122 @@
+<html>
+<head>
+<title>MS Dhoni - Inline CSS</title>
+<style>
+body {
+  background: linear-gradient(to bottom right, #E6F0FF, #FFF8DC);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333333;
+}
+
+#h1 {
+  color: #1E90FF;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 45px;
+  background: linear-gradient(to right, #00BFFF, #87CEFA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 40px;
+  letter-spacing: 3px;
+}
+
+#p1 {
+  background-color: #F8F8FF;
+  color: #333333;
+  font-size: 20px;
+  text-align: justify;
+  width: 80%;
+  margin: 20px auto;
+  line-height: 1.7;
+  border-left: 6px solid #1E90FF;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+#h2 {
+  text-align: center;
+  font-family: 'Trebuchet MS';
+  color: #008B8B;
+  font-size: 35px;
+  text-transform: uppercase;
+  margin-top: 50px;
+  letter-spacing: 2px;
+}
+
+#ol1 {
+  width: 70%;
+  margin: 30px auto;
+  padding: 20px 40px;
+  background: linear-gradient(to right, #E0FFFF, #F0FFF0);
+  border: 2px solid #20B2AA;
+  border-radius: 20px;
+  font-family: 'Comic Sans MS';
+  font-size: 20px;
+  color: #004080;
+  list-style-type: none;
+}
+
+#ol1 li {
+  counter-increment: item;
+  margin: 12px 0;
+  padding: 10px;
+  border-bottom: 1px solid #ADD8E6;
+  position: relative;
+}
+
+#ol1 li::before {
+  content: counter(item) ". ";
+  color: #FF4500;
+  font-weight: bold;
+  position: absolute;
+  left: -30px;
+}
+
+#ol1 li:last-child {
+  border-bottom: none;
+}
+
+#p2 {
+  text-align: center;
+  color: #006400;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #F0FFF0;
+  width: 60%;
+  margin: 40px auto;
+  padding: 15px;
+  border: 2px solid #32CD32;
+  border-radius: 15px;
+  font-style: italic;
+}
+</style>
+</head>
+
+<body>
+<h1 id="h1">MS DHONI</h1>
+
+<p id="p1">
+MS Dhoni is a legendary Indian cricketer and former captain known for his exceptional leadership,
+calm demeanor, and all-round skills as a right-handed batsman and wicketkeeper. Under his captaincy, India won the 2007 T20 World Cup, the 2011 Cricket World Cup,
+and the 2013 Champions Trophy, making him the only captain to win all three major ICC tournaments. He is also known as "Captain Cool" and is the captain of the
+Chennai Super Kings in the Indian Premier League (IPL).
+</p>
+
+<h1 id="h2">Records of MSD</h1>
+
+<ol id="ol1">
+  <li>Only captain to win all three major ICC trophies</li>
+  <li>Most international matches as captain</li>
+  <li>Most international stumpings</li>
+  <li>Second-most wins as captain</li>
+  <li>Most runs at No. 6 or lower</li>
+  <li>Highest individual score by a wicketkeeper in ODIs</li>
+</ol>
+
+<p id="p2">"Captain Cool of Indian Cricket"</p>
+</body>
+</html>
