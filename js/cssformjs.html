@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>Registration Form</title>
+<style>
+body {
+	background: #ede7f6;
+}
+form {
+	background: #ffffff;
+	padding: 20px; 
+	width: 300px; 
+	margin: 50px auto; 
+	border-radius: 5px;
+}
+label {
+	display: block; 
+	margin-top: 10px; 
+	font-weight: bold; 
+	color: #6a1b9a;
+}
+input, button {
+	width: 100%; 
+	padding: 8px; 
+	margin-top: 5px; 
+	box-sizing: border-box;
+}
+button {
+	background: #8e24aa;
+	color: white; 
+	border: none; 
+	margin-top: 15px;
+	cursor: pointer;
+}
+button:hover {
+	background: #6a1b9a;
+}
+</style>
+
+ 
+</head>
+<body>
+<script>
+function cancel()
+{
+	alert("you clicked cancel");
+	
+}
+function validate()
+{
+    var passwd=document.getElementById("pwd").value;
+	var passwd1=document.getElementById("pwd1").value;
+
+    var nme=document.getElementById("nm").value;
+	var phne=document.getElementById("no").value;
+
+    if(nme=="")
+    {
+        alert("enter your name");
+        return false;
+    }
+    else if(!isNaN(nme))
+    {
+        alert("name should not be a number");
+        return false;
+    }
+	else if(phne=="")
+	{
+		alert("you need to enter phone number");
+		return false;
+	}
+	else if(phne.length < 10 || phne.length > 10)
+	{
+		alert("phone number must be 10 numbers")
+		return false;
+	}
+	else if(isNaN(phne))
+	{
+		alert("phone number must not be characters");
+		return false;
+	}
+    else if(passwd=="")
+    {
+        alert("enter a password");
+        return false;
+    }
+    else if(passwd.length<8 || passwd.length > 8)
+    {
+        alert("password must be 8 character");
+        return false;
+    }
+	else if(passwd1 != passwd)
+	{
+		alert("re enter the correct  password")
+		return false;
+	}
+	
+	
+	
+    else
+    {
+        alert("thank you for registration");
+        return true;
+    }
+}
+</script>
+
+
+<center><h1><b>REGISTRATION FORM</b></h1></center>
+<form>
+
+<label>Name:</label>
+<input type="text" id="nm" placeholder="Enter your name" required><br><br>
+
+<label>Mobile:</label>
+<input type="text" id="no" maxlength="10" placeholder="Phone no" required><br><br>
+
+
+<label>Password:</label>
+<input type="password" id="pwd" maxlength="8" placeholder="Enter password" required><br><br>
+
+
+<label>Re-Enter Password:</label>
+<input type="password" id="pwd1" maxlength="8" placeholder="Re-Enter password" required><br><br>
+
+
+<button type="submit" onClick="validate()">Submit</button>
+<button type="button" onClick="cancel()">Cancel</button>
+
+</form>
+</body>
+</html>
